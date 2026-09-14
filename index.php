@@ -5,7 +5,7 @@
 // ==========================================================================
 
 session_start();
-require_once "koneksi.php";
+require_once "config/koneksi.php";
 
 // Mengambil seluruh data proyek dari database, diurutkan dari yang terbaru
 $query_projects = "SELECT * FROM projects ORDER BY id DESC";
@@ -68,11 +68,11 @@ $result_projects = mysqli_query($conn, $query_projects);
                 <div class="widget-header">Kelola Portofolio</div>
                 <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
                     <p style="margin-bottom: 8px;">Halo, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!</p>
-                    <a href="input-project.php" class="btn-action full-width" style="margin-bottom: 6px;">+ Tambah Proyek</a>
-                    <a href="logout.php" class="btn-action full-width" onclick="return confirm('Yakin ingin logout?');">Logout</a>
+                    <a href="admin/input-project.php" class="btn-action full-width" style="margin-bottom: 6px;">+ Tambah Proyek</a>
+                    <a href="admin/logout.php" class="btn-action full-width" onclick="return confirm('Yakin ingin logout?');">Logout</a>
                 <?php else: ?>
                     <p style="margin-bottom: 8px; font-size: 12px;">Khusus pengelola untuk input data karya baru via form:</p>
-                    <a href="login.php" class="btn-action full-width">Login Admin</a>
+                    <a href="admin/login.php" class="btn-action full-width">Login Admin</a>
                 <?php endif; ?>
             </div>
 

@@ -6,7 +6,7 @@
 // ==========================================================================
 
 session_start();
-require_once "koneksi.php";
+require_once "../config/koneksi.php";
 
 // Proteksi Halaman: Hanya dapat diakses jika session login aktif
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
@@ -56,7 +56,7 @@ $projects_result = mysqli_query($conn, $projects_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Proyek Portofolio | Praktikum 3</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -75,7 +75,7 @@ $projects_result = mysqli_query($conn, $projects_query);
                         <strong>Praktikum 3:</strong> Input Data Karya/Proyek via <code>$_REQUEST</code>
                     </div>
                     <div class="admin-nav-buttons">
-                        <a href="index.php" class="btn-action">Lihat Website Portofolio</a>
+                        <a href="../index.php" class="btn-action">Lihat Website Portofolio</a>
                         <a href="logout.php" class="btn-action" onclick="return confirm('Apakah Anda yakin ingin logout?');">Logout</a>
                     </div>
                 </div>

@@ -29,17 +29,20 @@ Website portofolio personal yang dikembangkan menggunakan **HTML5, CSS3, JavaScr
 
 ```text
 portfolio-pw/
-├── database.sql         # Skrip pembuatan basis data & tabel
-├── koneksi.php          # Koneksi MySQLi ke database portfolio_db
-├── login.php            # Halaman login (Session & Cookie)
-├── logout.php           # Proses penghapusan session logout
-├── input-project.php    # Form input karya baru via $_REQUEST
-├── index.php            # Laman portofolio dinamis dari MySQL
-├── index.html           # File statis praktikum sebelumnya (cadangan)
-├── style.css            # Estetika retro 90-an Windows 95
-├── script.js            # Interaktivitas JavaScript murni
-├── images/              # Aset gambar & GIF retro
-└── README.md            # Dokumentasi proyek & panduan pengujian
+├── admin/
+│   ├── login.php            # Halaman login (Session & Cookie)
+│   ├── logout.php           # Proses penghapusan session logout
+│   └── input-project.php    # Form input karya baru via $_REQUEST
+├── config/
+│   └── koneksi.php          # Koneksi MySQLi ke database portfolio_db
+├── database/
+│   └── database.sql         # Skrip pembuatan basis data & tabel
+├── images/                  # Aset gambar & GIF retro
+├── index.php                # Laman portofolio dinamis dari MySQL
+├── index.html               # File statis praktikum sebelumnya (cadangan)
+├── style.css                # Estetika retro 90-an Windows 95
+├── script.js                # Interaktivitas JavaScript murni
+└── README.md                # Dokumentasi proyek & panduan pengujian
 ```
 
 ---
@@ -51,8 +54,8 @@ portfolio-pw/
 2. Buka aplikasi **XAMPP Control Panel**.
 3. Klik tombol **Start** pada modul **Apache** dan modul **MySQL**.
 4. Buka browser dan buka phpMyAdmin di: `http://localhost/phpmyadmin/`.
-5. Buat database atau import file `database.sql`:
-   - Klik tab **Import** &rarr; pilih file `database.sql` &rarr; klik **Import / Go**.
+5. Buat database atau import file `database/database.sql`:
+   - Klik tab **Import** &rarr; pilih file `database/database.sql` &rarr; klik **Import / Go**.
    - Skrip ini akan membuat basis data `portfolio_db`, tabel `users`, dan tabel `projects`, lengkap dengan akun default:
      - **Username**: `admin`
      - **Password**: `admin123`
@@ -67,21 +70,21 @@ portfolio-pw/
 - Pada sidebar kiri terdapat widget **Kelola Portofolio** dengan tombol **Login Admin**.
 
 #### B. Uji Coba Autentikasi (Session & Cookie)
-- Klik tombol **Login Admin** atau akses langsung: `http://localhost/portfolio-pw/login.php`.
+- Klik tombol **Login Admin** atau akses langsung: `http://localhost/portfolio-pw/admin/login.php`.
 - Coba masukkan password salah &rarr; sistem menampilkan pesan error retro.
 - Masukkan username `admin` dan password `admin123`.
 - Beri centang pada opsi **"Ingat Saya (Simpan Username via Cookie)"**.
 - Klik tombol **Masuk / Login**.
-- **Hasil:** Pengguna otomatis diarahkan ke laman form input `http://localhost/portfolio-pw/input-project.php`.
+- **Hasil:** Pengguna otomatis diarahkan ke laman form input `http://localhost/portfolio-pw/admin/input-project.php`.
 - **Verifikasi Cookie:** Buka DevTools browser (tekan tombol `F12` &rarr; pilih tab **Application** &rarr; menu **Cookies**) &rarr; cookie `remember_user` dengan nilai `admin` tersimpan.
 
 #### C. Uji Coba Proteksi Session
 - Buka jendela baru dengan mode penyamaran (*Incognito / Private Window*).
-- Coba buka langsung `http://localhost/portfolio-pw/input-project.php`.
-- **Hasil:** Akses ditolak dan Anda otomatis diarahkan kembali ke `login.php`.
+- Coba buka langsung `http://localhost/portfolio-pw/admin/input-project.php`.
+- **Hasil:** Akses ditolak dan Anda otomatis diarahkan kembali ke `admin/login.php`.
 
 #### D. Uji Coba Input Data Proyek via `$_REQUEST`
-- Pada halaman `input-project.php` (setelah login):
+- Pada halaman `admin/input-project.php` (setelah login):
   1. Masukkan judul proyek baru (misalnya: `Sistem Manajemen Toko Buku`).
   2. Masukkan deskripsi proyek.
   3. Pilih salah satu thumbnail.
@@ -95,5 +98,5 @@ portfolio-pw/
 
 #### F. Uji Coba Logout
 - Klik tombol **Logout**.
-- Session login akan dihapus dan pengguna diarahkan kembali ke `login.php`.
+- Session login akan dihapus dan pengguna diarahkan kembali ke `admin/login.php`.
 - Buka kembali `index.php` &rarr; status admin kembali menjadi mode pengunjung biasa.

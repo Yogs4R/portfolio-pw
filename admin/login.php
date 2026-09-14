@@ -5,7 +5,7 @@
 // ==========================================================================
 
 session_start();
-require_once "koneksi.php";
+require_once "../config/koneksi.php";
 
 // Jika user sudah memiliki session login aktif, langsung arahkan ke form input proyek
 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Pengelola Portofolio | Praktikum 3</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-actions">
                         <button type="submit" class="btn-action">Masuk / Login</button>
-                        <a href="index.php" class="btn-action">Batal & Kembali</a>
+                        <a href="../index.php" class="btn-action">Batal & Kembali</a>
                     </div>
                 </form>
 
