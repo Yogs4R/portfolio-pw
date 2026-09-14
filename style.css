@@ -36,6 +36,9 @@ body {
     font-weight: bold;
     font-size: 13px;
     letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Container untuk GIF retro di header */
@@ -417,3 +420,204 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================================================== */
+/* 8. PRAKTIKUM 3: FORM RETRO, AUTENTIKASI, & ADMIN TABLE                    */
+/* ========================================================================== */
+
+/* Wrapper Halaman Auth / Form Centered */
+.auth-wrapper {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.auth-wrapper.admin-layout {
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+/* Window Dialog Box Klasik Windows 95 */
+.auth-window {
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    box-shadow: 2px 2px 0px #000000;
+    width: 100%;
+    max-width: 440px;
+}
+
+.auth-window.admin-window {
+    max-width: 820px;
+}
+
+.auth-body {
+    padding: 16px;
+    background-color: #c0c0c0;
+}
+
+.auth-header-note {
+    font-size: 13px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #808080;
+}
+
+/* Form Retro Elements */
+.retro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #000000;
+}
+
+/* Input text, select, dan textarea dengan efek inset border Windows 95 */
+.retro-input {
+    background-color: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 5px 8px;
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #000000;
+    outline: none;
+    width: 100%;
+}
+
+.retro-input:focus {
+    outline: 1px dotted #000000;
+}
+
+.retro-textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+}
+
+/* Checkbox retro */
+.form-checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.retro-checkbox {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.form-hint {
+    font-size: 11px;
+    color: #444444;
+    margin-top: 3px;
+}
+
+/* Tombol Form Aksi */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Notifikasi Alert Retro */
+.alert-retro {
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #000000;
+}
+
+.alert-danger {
+    background-color: #ffcccc;
+    color: #990000;
+    border-color: #990000;
+}
+
+.alert-success {
+    background-color: #ccffcc;
+    color: #006600;
+    border-color: #006600;
+}
+
+/* Admin Top Bar */
+.admin-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #808080;
+    font-size: 13px;
+}
+
+.admin-nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Tabel Data Retro */
+.retro-table-wrapper {
+    overflow-x: auto;
+    background-color: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.retro-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+}
+
+.retro-table th {
+    background-color: #c0c0c0;
+    border: 1px solid #808080;
+    padding: 6px 8px;
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.retro-table td {
+    border: 1px solid #d4d0c8;
+    padding: 6px 8px;
+    vertical-align: top;
+}
+
+.retro-table tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.auth-footer-help {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dotted #808080;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+}
+
