@@ -30,24 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Interaktivitas Tombol "Kirim Pesan" pada Sidebar
-    const contactBtn = document.getElementById("btn-send-message") || document.querySelector("#kontak .btn-action");
-    if (contactBtn) {
-        contactBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            // Menampilkan dialog pesan sederhana
-            alert("Terima kasih telah berkunjung. Fitur pengiriman pesan langsung akan segera hadir!");
-        });
-    }
-
-    // 3. Interaktivitas Tombol "Lihat Detail" pada Kartu Proyek
+    // 2. Interaktivitas Tombol Proyek (hanya tampilkan notifikasi jika tautan belum tersedia / masih #)
     const projectButtons = document.querySelectorAll(".project-info .btn-action");
     projectButtons.forEach(function (btn) {
         btn.addEventListener("click", function (event) {
-            event.preventDefault();
-            // Mengambil judul proyek dari kartu yang diklik
-            const cardTitle = this.closest(".project-info").querySelector("h3").textContent;
-            alert("Informasi detail untuk \"" + cardTitle + "\" sedang dalam tahap penyusunan dokumentasi.");
+            const linkHref = this.getAttribute("href");
+            if (!linkHref || linkHref === "#") {
+                event.preventDefault();
+                const cardTitle = this.closest(".project-info").querySelector("h3").textContent;
+                alert("Tautan proyek untuk \"" + cardTitle + "\" sedang dalam tahap persiapan.");
+            }
         });
     });
 

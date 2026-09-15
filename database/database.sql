@@ -37,11 +37,11 @@ INSERT INTO projects (title, description, image, link) VALUES
     'Fuenzer Research Website',
     'Asisten Riset Ilmiah Berbasis AI. Temukan referensi jurnal ilmiah dan dapatkan sintesis instan dengan Google Gemini.',
     'images/project1.jpeg',
-    '#'
+    'https://research.fuenzer.web.id'
 ),
 (
     'Fuenzer Sports Website',
     'Platform simulasi analitik olahraga interaktif berbasis AI. Platform ini berfungsi sebagai perpaduan antara antarmuka pencarian instan dan permainan manajemen olahraga.',
     'images/project2.jpeg',
-    '#'
+    'https://sports.fuenzer.web.id'
 );

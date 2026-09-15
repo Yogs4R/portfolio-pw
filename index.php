@@ -93,7 +93,7 @@ $result_projects = mysqli_query($conn, $query_projects);
                 <div class="widget-header">Contact Me</div>
                 <p>Email: fuenzerofficial@gmail.com</p>
                 <p>Location: Semarang, Indonesia</p>
-                <a href="#kontak" class="btn-action full-width" id="btn-send-message">Send Message</a>
+                <a href="mailto:fuenzerofficial@gmail.com" class="btn-action full-width" id="btn-send-message">Send Message</a>
             </div>
 
         </aside>
@@ -138,7 +138,7 @@ $result_projects = mysqli_query($conn, $query_projects);
                                 <div class="project-info">
                                     <h3><?php echo htmlspecialchars($project['title']); ?></h3>
                                     <p><?php echo htmlspecialchars($project['description']); ?></p>
-                                    <a href="<?php echo htmlspecialchars($project['link']); ?>" class="btn-action">Lihat Detail</a>
+                                    <a href="<?php echo htmlspecialchars($project['link']); ?>" target="_blank" rel="noopener noreferrer" class="btn-action">Kunjungi Proyek</a>
                                 </div>
                             </article>
                         <?php endwhile; ?>
