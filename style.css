@@ -621,3 +621,49 @@ body {
     color: #333333;
 }
 
+/* Modifier Tombol Aksi Tabel & Form */
+.btn-action.btn-sm {
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+.btn-action.btn-danger {
+    background-color: #ffdddd;
+    color: #990000;
+    border-right-color: #990000;
+    border-bottom-color: #990000;
+}
+
+.btn-action.btn-danger:hover {
+    background-color: #ffc2c2;
+}
+
+.table-thumbnail {
+    width: 48px;
+    height: 34px;
+    object-fit: cover;
+    border: 1px solid #000000;
+    display: block;
+}
+
+.current-img-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background-color: #e0e0e0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.current-img-preview img {
+    width: 65px;
+    height: 45px;
+    object-fit: cover;
+    border: 1px solid #000000;
+}
+
+
