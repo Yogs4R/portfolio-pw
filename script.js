@@ -1,11 +1,8 @@
-// ==========================================================================
-// Step 6: JavaScript Interaktif Sederhana
-// Prinsip: Ringkas, bersih, tanpa library eksternal, mudah dipahami untuk UTS.
-// ==========================================================================
+// JavaScript Interaktif Sederhana
 
 document.addEventListener("DOMContentLoaded", function () {
     
-    // 1. Fitur Scroll Halus (Smooth Scroll) untuk Menu Navigasi
+    // Fitur Scroll Halus (Smooth Scroll) untuk Menu Navigasi
     // Membaca semua tautan menu yang mengarah ke ID section (diawali tanda #)
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -30,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Interaktivitas Tombol Proyek (hanya tampilkan notifikasi jika tautan belum tersedia / masih #)
+    // Interaktivitas Tombol Proyek (hanya tampilkan notifikasi jika tautan belum tersedia / masih #)
     const projectButtons = document.querySelectorAll(".project-info .btn-action");
     projectButtons.forEach(function (btn) {
         btn.addEventListener("click", function (event) {

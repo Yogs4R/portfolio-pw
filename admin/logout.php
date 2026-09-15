@@ -1,8 +1,7 @@
 <?php
-// ==========================================================================
+
 // Proses Logout - Praktikum 3 Pemrograman Web
 // Menghapus session aktif pengguna
-// ==========================================================================
 
 session_start();
 

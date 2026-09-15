@@ -1,13 +1,12 @@
 <?php
-// ==========================================================================
+
 // Halaman Kelola Proyek (CRUD Lengkap) - Praktikum 3 Pemrograman Web
-// Mendukung Create, Read, Update, Delete dengan $_REQUEST & Upload/Ganti Gambar
-// ==========================================================================
+// Implementasi Create, Read, Update, Delete dengan $_REQUEST & Upload/Ganti Gambar
 
 session_start();
 require_once "../config/koneksi.php";
 
-// 1. Proteksi Halaman: Hanya dapat diakses jika session login aktif
+// Proteksi Halaman: Hanya dapat diakses jika session login aktif
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
     header("Location: login.php");
     exit;
@@ -24,7 +23,7 @@ $edit_data    = [
     'link'        => '#'
 ];
 
-// 2. Operasi DELETE: Menghapus data proyek berdasarkan parameter GET id
+// Operasi DELETE: Menghapus data proyek berdasarkan parameter GET id
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $delete_id = (int)$_GET['id'];
     
@@ -39,7 +38,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     }
 }
 
-// 3. Operasi PREPARE EDIT: Mengambil data lama proyek yang akan diedit
+// Operasi PREPARE EDIT: Mengambil data lama proyek yang akan diedit
 if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) {
     $edit_id = (int)$_GET['id'];
     $find_res = mysqli_query($conn, "SELECT * FROM projects WHERE id = $edit_id LIMIT 1");
@@ -51,11 +50,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) 
     }
 }
 
-// 4. Operasi SIMPAN (CREATE & UPDATE): Dipicu saat form dikirimkan (POST)
+// Operasi SIMPAN (CREATE & UPDATE): Dipicu saat form dikirimkan (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_id  = isset($_POST['project_id']) && !empty($_POST['project_id']) ? (int)$_POST['project_id'] : 0;
     
-    // Menangkap input data menggunakan variabel superglobal $_REQUEST sesuai kriteria Praktikum
+    // Menangkap input data menggunakan variabel superglobal $_REQUEST
     $title       = isset($_REQUEST['title']) ? mysqli_real_escape_string($conn, trim($_REQUEST['title'])) : '';
     $description = isset($_REQUEST['description']) ? mysqli_real_escape_string($conn, trim($_REQUEST['description'])) : '';
     $link        = isset($_REQUEST['link']) && !empty(trim($_REQUEST['link'])) 
@@ -139,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 5. READ: Mengambil seluruh daftar proyek terbaru untuk tabel di bawah
+// READ: Mengambil seluruh daftar proyek terbaru untuk tabel di bawah
 $projects_query = "SELECT * FROM projects ORDER BY id DESC";
 $projects_result = mysqli_query($conn, $projects_query);
 ?>

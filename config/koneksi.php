@@ -1,8 +1,7 @@
 <?php
-// ==========================================================================
+
 // Koneksi Database Sederhana dengan mysqli
 // Praktikum 3 - Pemrograman Web
-// ==========================================================================
 
 $host = "localhost";
 $user = "root";

@@ -1,8 +1,7 @@
 <?php
-// ==========================================================================
+
 // Halaman Login - Praktikum 3 Pemrograman Web
 // Menggunakan konsep Cookie & Session
-// ==========================================================================
 
 session_start();
 require_once "../config/koneksi.php";
@@ -35,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Verifikasi password (mendukung password_hash dan fallback teks biasa)
             if (password_verify($password, $user['password']) || $password === $user['password']) {
-                // 1. SET SESSION: Menyimpan status otentikasi pengguna
+                // SET SESSION: Menyimpan status otentikasi pengguna
                 $_SESSION['login'] = true;
                 $_SESSION['username'] = $user['username'];
 
-                // 2. SET COOKIE: Menyimpan username jika checkbox "Ingat Saya" dicentang
+                // SET COOKIE: Menyimpan username jika checkbox "Ingat Saya" dicentang
                 if ($remember) {
                     // Cookie berlaku selama 7 hari (86400 * 7 detik)
                     setcookie('remember_user', $user['username'], time() + (86400 * 7), '/');

@@ -1,8 +1,7 @@
 <?php
-// ==========================================================================
+
 // Portofolio Dinamis - Praktikum 3 Pemrograman Web
 // Mengambil data proyek dari MySQL menggunakan mysqli
-// ==========================================================================
 
 session_start();
 require_once "config/koneksi.php";

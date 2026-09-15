@@ -1,12 +1,10 @@
--- ==========================================================================
 -- Database Schema untuk Praktikum 3 - Pemrograman Web
 -- Nama Database: portfolio_db
--- ==========================================================================
 
 CREATE DATABASE IF NOT EXISTS portfolio_db;
 USE portfolio_db;
 
--- 1. Tabel Pengguna (Users) untuk Autentikasi Login
+-- Tabel Pengguna (Users) untuk Autentikasi Login
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -14,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. Tabel Proyek (Projects) untuk Menyimpan Portofolio Karya
+-- Tabel Proyek (Projects) untuk Menyimpan Portofolio Karya
 CREATE TABLE IF NOT EXISTS projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(150) NOT NULL,
