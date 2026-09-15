@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 2. Interaktivitas Tombol "Kirim Pesan" pada Sidebar
-    const contactBtn = document.querySelector(".btn-action.full-width");
+    const contactBtn = document.querySelector("#kontak .btn-action");
     if (contactBtn) {
         contactBtn.addEventListener("click", function (event) {
             event.preventDefault();
