@@ -149,7 +149,7 @@ $projects_result = mysqli_query($conn, $projects_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $is_edit_mode ? 'Edit Proyek' : 'Kelola Proyek'; ?> | Praktikum 3</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=<?php echo filemtime('../style.css'); ?>">
 </head>
 <body>
 
@@ -212,12 +212,13 @@ $projects_result = mysqli_query($conn, $projects_query);
                         <label>Thumbnail / Gambar Proyek:</label>
                         
                         <?php if ($is_edit_mode): ?>
-                            <div class="current-img-preview">
+                            <div class="current-img-preview" style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px; padding: 6px 10px; background-color: #e0e0e0; border: 1px solid #808080;">
                                 <img src="../<?php echo htmlspecialchars($edit_data['image']); ?>" 
                                      alt="Current Thumbnail"
+                                     style="width: 80px; height: 55px; max-width: 80px; max-height: 55px; object-fit: cover; border: 1px solid #000000; flex-shrink: 0;"
                                      onerror="this.src='../images/project1.jpeg';">
                                 <div>
-                                    <p><strong>Gambar Saat Ini:</strong> <code><?php echo htmlspecialchars($edit_data['image']); ?></code></p>
+                                    <p style="margin-bottom: 4px;"><strong>Gambar Saat Ini:</strong> <code><?php echo htmlspecialchars($edit_data['image']); ?></code></p>
                                     <small class="form-hint">Kosongkan upload jika tidak ingin mengganti gambar yang sudah ada.</small>
                                 </div>
                             </div>
@@ -275,40 +276,43 @@ $projects_result = mysqli_query($conn, $projects_query);
                     Daftar Proyek di Database Saat Ini
                 </div>
                 <div class="retro-table-wrapper">
-                    <table class="retro-table">
+                    <table class="retro-table" style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style="width: 35px;">No</th>
-                                <th style="width: 60px;">Foto</th>
-                                <th style="width: 150px;">Judul Proyek</th>
+                                <th style="width: 35px; text-align: center;">No</th>
+                                <th style="width: 70px; text-align: center;">Foto</th>
+                                <th style="width: 160px;">Judul Proyek</th>
                                 <th>Deskripsi</th>
-                                <th style="width: 140px;">Tautan</th>
-                                <th style="width: 110px; text-align: center;">Aksi</th>
+                                <th style="width: 150px;">Tautan</th>
+                                <th style="width: 120px; text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if ($projects_result && mysqli_num_rows($projects_result) > 0): ?>
                                 <?php $no = 1; while ($row = mysqli_fetch_assoc($projects_result)): ?>
                                     <tr>
-                                        <td><?php echo $no++; ?></td>
-                                        <td>
+                                        <td style="text-align: center; vertical-align: middle;"><?php echo $no++; ?></td>
+                                        <td style="text-align: center; vertical-align: middle;">
                                             <img src="../<?php echo htmlspecialchars($row['image']); ?>" 
                                                  alt="Thumbnail" 
                                                  class="table-thumbnail"
+                                                 style="width: 50px; height: 35px; max-width: 50px; max-height: 35px; object-fit: cover; border: 1px solid #000000; display: block; margin: 0 auto;"
                                                  onerror="this.src='../images/project1.jpeg';">
                                         </td>
-                                        <td><strong><?php echo htmlspecialchars($row['title']); ?></strong></td>
-                                        <td><?php echo htmlspecialchars($row['description']); ?></td>
-                                        <td>
+                                        <td style="vertical-align: middle;"><strong><?php echo htmlspecialchars($row['title']); ?></strong></td>
+                                        <td style="word-break: break-word; vertical-align: middle;"><?php echo htmlspecialchars($row['description']); ?></td>
+                                        <td style="word-break: break-all; vertical-align: middle;">
                                             <a href="<?php echo htmlspecialchars($row['link']); ?>" target="_blank" rel="noopener noreferrer" style="color: #000080;">
                                                 <small><?php echo htmlspecialchars($row['link']); ?></small>
                                             </a>
                                         </td>
-                                        <td style="text-align: center;">
-                                            <a href="input-project.php?action=edit&id=<?php echo $row['id']; ?>" class="btn-action btn-sm">Edit</a>
-                                            <a href="input-project.php?action=delete&id=<?php echo $row['id']; ?>" 
-                                               class="btn-action btn-sm btn-danger" 
-                                               onclick="return confirm('Apakah Anda yakin ingin menghapus proyek ini?');">Hapus</a>
+                                        <td style="text-align: center; vertical-align: middle; white-space: nowrap;">
+                                            <div style="display: flex; gap: 6px; justify-content: center; align-items: center;">
+                                                <a href="input-project.php?action=edit&id=<?php echo $row['id']; ?>" class="btn-action btn-sm">Edit</a>
+                                                <a href="input-project.php?action=delete&id=<?php echo $row['id']; ?>" 
+                                                   class="btn-action btn-sm btn-danger" 
+                                                   onclick="return confirm('Apakah Anda yakin ingin menghapus proyek ini?');">Hapus</a>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endwhile; ?>
