@@ -93,7 +93,7 @@ $result_projects = mysqli_query($conn, $query_projects);
                 <div class="widget-header">Contact Me</div>
                 <p>Email: fuenzerofficial@gmail.com</p>
                 <p>Location: Semarang, Indonesia</p>
-                <a href="#kontak" class="btn-action full-width">Send Message</a>
+                <a href="#kontak" class="btn-action full-width" id="btn-send-message">Send Message</a>
             </div>
 
         </aside>
@@ -161,7 +161,7 @@ $result_projects = mysqli_query($conn, $query_projects);
         <p class="footer-note">Dirancang untuk memenuhi tugas praktikum 3 di mata kuliah Pemrograman Web (PHP & MySQL)</p>
     </footer>
 
-    <!-- JavaScript simple -->
-    <script src="script.js"></script>
+    <!-- JavaScript simple (dengan cache buster agar browser selalu memuat script terbaru) -->
+    <script src="script.js?v=<?php echo filemtime('script.js'); ?>"></script>
 </body>
 </html>
